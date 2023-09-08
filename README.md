@@ -15,3 +15,16 @@ export const isUndefined = (value) => typeof value === "undefined";
 ```js
 export const range = (min, max) => [...Array(max - min + 1).keys()].map((i) => i + min);
 ```
+
+## Object
+
+```ts
+const pickByKeys = (obj: { [key: string]: any }, keys: string[]) => {
+  return keys.reduce<{ [key: string]: any }>((acc, key) => {
+    if (obj && obj.hasOwnProperty(key)) {
+      acc[key] = obj[key];
+    }
+    return acc;
+  }, {});
+};
+```
